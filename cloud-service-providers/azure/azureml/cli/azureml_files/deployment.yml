@@ -2,8 +2,8 @@ $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.sch
 name: deployment_name_placeholder
 endpoint_name: endpoint_name_placeholder
 environment: 
-  name: image_name_placeholder-env
-  image: acr_registry_placeholder.azurecr.io/image_name_placeholder:v1
+  name: nim-meta-llama3-1-8b-instruct-env
+  image: acr_registry_placeholder.azurecr.io/image_name_placeholder
   inference_config:
       liveness_route:
           path: /v1/health/ready

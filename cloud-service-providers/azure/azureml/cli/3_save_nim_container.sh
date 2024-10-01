@@ -3,8 +3,7 @@ set -x
 
 source config.sh
 
-TAG="latest"
-CONTAINER_NAME="${acr_registry_name}.azurecr.io/${image_name}:${TAG}"
+CONTAINER_NAME="${acr_registry_name}.azurecr.io/${image_name}"
 SKIP_CONTAINER_CREATION=false
 
 for i in "$@"; do
@@ -31,16 +30,14 @@ else
   dockerfile_content="FROM ${ngc_container}
   EXPOSE 8000
   USER root
-  ADD container_files/set_and_deploy_model.sh /tmp/set_and_deploy_model.sh
-  RUN chmod +x /tmp/set_and_deploy_model.sh
-  CMD /tmp/set_and_deploy_model.sh"
+  CMD echo \"NGC API KEY: $NGC_API_KEY\" && bash /opt/nim/start-server.sh"
   echo "$dockerfile_content" > Dockerfile
   chmod a+rwx create_dockerfile.sh
   echo "NIM Dockerfile has been created."
 
   # Login into ACR registry and upload the NIM container
   echo "Logging into Azure Container Registry"
-  az acr login -n $acr_registry_name
+  az acr login --name $acr_registry_name --resource-group $resource_group
   echo "Building the new docker image and tagging it"
   docker build -t $CONTAINER_NAME -f Dockerfile .
   rm Dockerfile

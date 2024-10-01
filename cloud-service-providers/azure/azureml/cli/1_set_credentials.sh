@@ -20,7 +20,7 @@ fi
 az role assignment create \
   --assignee $email_address \
   --role "Azure Machine Learning Workspace Connection Secrets Reader" \
-  --scope /subscriptions/$subscription_id/resourcegroups/$resource_group/providers/Microsoft.MachineLearningServices/workspaces/$workspace
+  --scope subscriptions/$subscription_id/resourcegroups/$resource_group/providers/Microsoft.MachineLearningServices/workspaces/$workspace
 
 # Configure default resource group and workspace
 az configure --defaults group=$resource_group workspace=$workspace
