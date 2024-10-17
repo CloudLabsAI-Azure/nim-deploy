@@ -43,4 +43,4 @@ endpoint_name="llama3-8b-nim-endpoint-aml-1"
 
 # Deployment related information
 deployment_name="llama3-8b-nim-deployment-aml-1"
-instance_type="Standard_NC48ads_A100_v4"
+instance_type="Standard_NC24ads_A100_v4"
