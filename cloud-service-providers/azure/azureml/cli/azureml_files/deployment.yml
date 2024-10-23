@@ -2,19 +2,19 @@ $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.sch
 name: deployment_name_placeholder
 endpoint_name: endpoint_name_placeholder
 environment: 
-  name: nim-meta-llama3-1-8b-instruct-env
+  name: nim-meta-llama-3-1-8b-instruct-env
   image: acr_registry_placeholder.azurecr.io/image_name_placeholder
   inference_config:
-      liveness_route:
-          path: /v1/health/ready
-          port: 8000
-      readiness_route:
-          path: /v1/health/ready
-          port: 8000
-      scoring_route:
-          path: /
-          port: 8000
-instance_type: instance_type_placeholder
+    liveness_route:
+      path: /v1/health/ready
+      port: 8000
+    readiness_route:
+      path: /v1/health/ready
+      port: 8000
+    scoring_route:
+      path: /
+      port: 8000
+instance_type: Standard_NC24ads_A100_v4
 instance_count: 1
 environment_variables:
-    NGC_API_KEY: ngc_api_key_placeholder
+  NGC_API_KEY: ${{azureml://connections/ngc/credentials/NGC_API_KEY}}
