@@ -16,5 +16,8 @@ environment:
       port: 8000
 instance_type: Standard_NC24ads_A100_v4
 instance_count: 1
+request_settings:
+  request_timeout_ms: 180000
+  max_concurrent_requests_per_instance: 512
 environment_variables:
   NGC_API_KEY: ${{azureml://connections/ngc/credentials/NGC_API_KEY}}
