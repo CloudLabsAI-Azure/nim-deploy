@@ -49,10 +49,10 @@ extraVolumeMounts: {}
 ## @param image.tag [string] Image tag or version
 ## @param image.pullPolicy [string] Image pull policy
 image:
-  repository: nvcr.io/nim/meta/llama3-8b-instruct
+  repository: nvcr.io/nim/meta/llama-3.1-8b-instruct
   pullPolicy: IfNotPresent
   # Tag overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
 
 ## @extra imagePullSecrets Specify list of secret names that are needed for the main container and any init containers.
 ## @skip imagePullSecrets[0].name
@@ -278,7 +278,7 @@ metrics:
 ## @param model.modelStorePath (deprecated) Specify location of unpacked model.
 model:
   nimCache: /model-store
-  name: meta/llama3-8b-instruct # optional name of the model in the OpenAI API -- used in `helm test`
+  name: meta/llama-3.1-8b-instruct # optional name of the model in the OpenAI API -- used in `helm test`
   ngcAPISecret: "ngc-api"
   ngcAPIKey: ""
   openaiPort: 8000
