@@ -36,7 +36,7 @@ email_address="<your-email-address>"
  # NOTE: Verify that your AML workspace can access this ACR
 acr_registry_name="<your-azureml-registry-name>"
 image_name="<custom-name-for-nim-image>"
-ngc_container="nvcr.io/nim/meta/llama-3.1-8b-instruct:latest"
+ngc_container="nvcr.io/nim/meta/llama-3.1-8b-instruct:1.8.3"
 
 # Endpoint related information
 endpoint_name="llama-3-1-8b-nim-endpoint-aml-1"
