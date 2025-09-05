@@ -16,7 +16,7 @@ curl -X 'POST' \
       "role": "user"
     }
   ],
-  "model": "meta/llama-3.1-8b-instruct",
+  "model": "meta/llama3-8b-instruct",
   "max_tokens": 500,
   "top_p": 1,
   "n": 1,
