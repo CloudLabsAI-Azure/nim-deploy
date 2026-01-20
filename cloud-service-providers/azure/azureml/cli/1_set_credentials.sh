@@ -13,7 +13,7 @@ done
 
 # Create new workspace
 if $CREATE_WORKSPACE; then
-    az ml workspace create --name $workspace --resource-group $resource_group --location $location
+    az ml workspace create --workspace-name $workspace --resource-group $resource_group --location $location
 fi
 
 # Assign role permission to read secrets from workspace connections
